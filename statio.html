@@ -1,0 +1,516 @@
+<!doctype html>
+<!--
+    Theme: Statio
+    Design: Raadiate (http://raadiate.tumblr.com)
+	Tumbl'd by: Ridhan (http://ridhan.tumblr.com)
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{Title}{block:PostSummary} | {PostSummary}{/block:PostSummary}{block:SearchPage} | {lang:Search results for SearchQuery}{/block:SearchPage}</title>	
+<meta name="description" content="{MetaDescription}" />
+<link rel="shortcut icon" href="{Favicon}" />
+<link rel="alternate" type="application/rss+xml" title="{Title}" href="{RSS}" />
+<link href="http://fonts.googleapis.com/css?family=Anton" rel="stylesheet" type="text/css" />
+
+<!-- Default Variables -->
+<meta name="image:Background" content="http://static.tumblr.com/ht0jnpr/JDzm4hh8m/bg.jpg"/>
+<meta name="image:Header" content="http://static.tumblr.com/ht0jnpr/Jwvm4hl2o/logo.png"/>
+<meta name="if:Show About Widget" content="1"/>
+<meta name="if:Show Stuff I Like Widget" content="1"/>
+<meta name="if:Show Latest Tweets Widget" content="0"/>
+<meta name="if:Show People I Follow Widget" content="1"/>
+<meta name="text:About Title" content="About Me"/>
+<meta name="text:Stuff Title" content="Stuff I Like"/>
+<meta name="text:Tweets Title" content="Latest Tweets"/>
+<meta name="text:Number of Tweets" content="3"/>
+<meta name="text:Following Title" content="People I Follow"/>
+<meta name="text:Google Analytics ID" content="" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="http://static.tumblr.com/ht0jnpr/IEgm3vc1g/reset.css" />
+<style type="text/css">
+/*-------------------------------------------------------------------------------------------*/
+/* 1. SETUP */
+/*-------------------------------------------------------------------------------------------*/
+/* 1.1 Defaults */
+body  { background: #fff url('{image:Background}') repeat left top; font: 14px Georgia, Times, Serif; line-height: 1.5; color: #7a7a7a; }
+h1, h2, h3, h4, h5, h6  { margin: 0; font-family: 'Anton', arial, serif; color: #000; }
+h1  {font-size: 30px;} h2  {font-size: 24px;} h3  {font-size: 20px;} h4  {font-size: 18px;} h5  {font-size: 14px;} h6  {font-size: 12px;}
+p  {margin: 0;}
+img {background: none repeat scroll 0 0 #efefef;}
+a img:focus, a img:hover, a img:active {background: none repeat scroll 0 0 #bbb;}
+
+/* 1.2 Hyperlinks */
+a:link, a:visited  { color: #555555; }
+a:hover  {color: #DD3333;}
+h1 a:link, h1 a:visited, h2 a:link, h2 a:visited, h3 a:link, h3 a:visited,
+h4 a:link, h4 a:visited, h5 a:link, h5 a:visited, h6 a:link, h6 a:visited  { text-decoration: none; }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-decoration: underline;}
+
+/*-------------------------------------------------------------------------------------------*/
+/* 2. SITE STRUCTURE & APPEARANCE */
+/*-------------------------------------------------------------------------------------------*/
+/* 2.1 Containers & Columns */
+#container  {
+}
+.col-left { float: left; }
+.col-right { float: right; }
+.col-full  { width: 1024px; margin: 0 auto; }
+
+/* 2.2 Navigation */
+#navigation  { text-transform: uppercase; font-size:11px; background-color: #000; }
+.nav, .nav ul  { z-index:100; margin:0; padding:0; list-style:none; line-height:1; }
+.nav li  { float:left; width: auto; }
+
+
+/* TOP NAVIGATION */
+#topnav  { width: 620px; }
+#topnav a:link, #topnav a:visited  { display:block; z-index:100; padding:0 20px 0 0; line-height:55px; font-family: Helvetica, Arial, sans-serif; text-decoration: none; color: #fff; }
+#topnav a:hover  { text-decoration: underline; }
+#topnav li ul  {  margin-top: -15px; border-top: 1px solid #d8d8d8;  }
+#topnav li ul a:link, #topnav li ul a:visited  { padding: 0 0 0 10px; }
+#topnav li ul a:hover  { color: #000!important; background: #d8d8d8;  }
+
+/* PAGES NAVIGATION */
+#pagenav  { margin-top: 20px; }
+#pagenav a  { display:block; z-index:100; margin: 0; padding:0 15px 10px 15px; text-decoration: none; text-transform: uppercase; font-size: 25px; font-family: 'Anton', Helvetica, arial, sans-serif; color: #000; border-bottom: 4px solid #ddd;  }
+#pagenav li a:hover  { border-color: #333;  }
+#pagenav li.rss a  { color: #333; background: url("http://static.tumblr.com/ht0jnpr/HNRm4hhps/ico-rss.png") no-repeat right 4px; padding-right: 25px; }
+
+/* 2.3 Header */
+#topsearch  { width: 380px; line-height: 0; }
+#topsearch #searchform_top  { margin: 14px 0 0 0; }
+#header{padding:45px 0;clear:both;position:relative;}
+#logo  { }
+#logo img  {}
+#logo img:focus, #logo img:hover, #logo img:active {background: none repeat scroll 0 0 transparent;}
+#logo .site-title a { font-family: 'Anton', arial, serif;color:#222; font-size:48px; line-height:48px; text-transform:uppercase; font-weight:normal; text-decoration:none;  }
+#logo .site-title a:hover { text-decoration:underline;  }
+#logo .site-description { display :none; }
+#logo .site-title { display:block; }
+
+/* 2.4 Content */
+#content{min-height:550px;padding:0;}
+* html #content{height:550px;}
+#main{width:620px;}
+
+/* 2.5 Sidebar */
+#sidebar{width:380px;overflow:hidden;}
+#sidebar ul {margin-bottom: 0;}
+
+
+/* 2.6 Footer */
+#footer  { font-family: Helvetica, Arial, sans-serif; font-size: 11px; padding: 20px 0; background-color: #000; color: #fff; text-transform: uppercase; }
+#footer a:link, #footer a:visited  { color: #fff; }
+#footer p  { margin: 5px 0 0 0; }
+#footer #credit span  { display: none; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* 3. POSTS */
+/*-------------------------------------------------------------------------------------------*/
+.post  { position: relative; margin: 0 0 60px 0; padding: 40px 55px; background-color: #fff; border: 5px solid #efefef; }
+.post .title  { width:100%; position:relative; margin: 0 0 30px 0; padding: 0 0 25px 0; color: #000; border-bottom: 1px solid #e7e7e7; font-size: 32px; }
+.post .title a:link, .post .title a:visited  { color: #000; }
+.post .title a:hover  { text-decoration: none; }
+.post .date  { background: url("http://static.tumblr.com/ht0jnpr/nCIm4hhnp/date.png") no-repeat left top; position: absolute; top: 30px; left: -40px; width: 71px; height: 60px; padding: 10px 0 0 0; text-align: center; color: #fff; }
+.post .date .day  { display: block; font-size: 36px; line-height: 32px; }
+.post .date .month  { display: block; font-size: 12px; text-transform: uppercase; font-weight: bold; }
+.post-meta  { margin: 30px 0 0 0; font-size: 11px; color: #9F9F9F; border-top: 1px solid #c4c4c4; border-bottom: 1px solid #c4c4c4; }
+.post-meta li  { float: left; width: 154px; padding: 10px 0 7px 10px; }
+.post-meta li.tags  { border-left: 1px solid #e7e7e7; border-right: 1px solid #e7e7e7; }
+.post-meta li span  { display: block; }
+.post-meta li .head  { font-size: 10px; text-transform: uppercase; font-weight: bold; font-family: Helvetica, Arial, sans-serif; color: #000; }
+.post-meta li .body, .post-meta li .body a:link, .post-meta li .body a:visited  { font-size: 13px; color: #7a7a7a; font-style: italic; text-decoration: none; }
+.post-meta li .body a:hover  { color: #f3686d; }
+.post img, .entry img  { padding:5px;  margin: 0 0 20px 0; width: 500px;}
+.post img:focus, .post img:hover, .post img:active {background: none repeat scroll 0 0 #bbb;}
+#nav-below{ margin: 20px 0 0 0;}
+.entry  {}
+
+/* 3.1 Typographic Elements */
+.entry h1 {}  .entry h2 {}  .entry h3 {}  .entry h4 {}  .entry h5 {}  .entry h6 {}
+.entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6  {	margin: 0 0 15px 0; }
+.entry p  { margin: 0 0 15px 0; }
+.entry blockquote  { padding: 10px 30px; color: #666; font-style: italic; font-size: 16px; }
+.entry blockquote p  {}
+.entry ul  { margin: 0 0 15px 0; padding: 0 0 0 30px; }
+.entry ul ul  { margin: 0; }
+.entry ul li  {	list-style-type: circle; }
+.entry ul ul li  { list-style-type: disc; }
+.entry ol  { margin: 0 0 15px 0; padding: 0 0 0 30px; }
+.entry ol ol  { margin: 0; }
+.entry  ol li  { list-style-type: upper-latin; }
+.entry  ol li ol li  { list-style-type: lower-latin; }
+
+/* 3.2 Pagination */
+.more_entries { margin-top: -30px; padding: 10px 55px; background-color: #fff; border: 5px solid #efefef; }
+.more_entries a { display: block; margin: 0 0 0 0; text-transform: uppercase; font-weight: bold; text-decoration: none; }
+.more_entries { margin: 0; text-align: center; }
+.more_entries a:link,
+.more_entries a:visited { color: #ddd; display: inline; text-decoration: none !important; padding: 4px 6px!important; }
+.more_entries .current, 
+.more_entries .on,
+.more_entries a:hover { background: #eee !important; color: #666; padding: 4px 7px; font-weight: bold; }
+.more_entries .extend { background:none; border:none; }
+
+/*-------------------------------------------------------------------------------------------*/
+/* 4. WIDGETS */
+/*-------------------------------------------------------------------------------------------*/
+
+/* 4.1 Generic Widgets */
+.widget  { background: none repeat scroll 0 0 #FFFFFF;border: 5px solid #EFEFEF;margin: 0 0 60px;padding: 40px 55px; }
+.widget img {padding: 5px;}
+.widget h3  { margin: 0; padding: 10px 0; text-transform:uppercase; color: #404040; font-weight:normal; }
+.widget ul  { clear:both; }
+.widget ul li  {}
+.widget ul li a:link, .widget ul li a:visited { text-decoration: none; color:#666; }
+.widget ul ul  { padding: 0 0 0 15px; border-top: none; }
+
+/* 4.2 Specific Widgets */
+/* ABOUT */
+#about {overflow: hidden;}
+#about img {background: #fff;border: 1px solid #ccc;float: left;margin: 0 10px 0 0;padding: 3px;}
+/* TWITTER */
+#twitter ul {margin: 0 0 15px;padding: 0 0 0 30px;}
+#twitter ul li {list-style-type: circle;}
+#twitter li  { padding: 6px 0 6px 10px; line-height: 18px; list-style}
+#twitter li a  { display: inline; padding: 0; line-height: 18px!important; background: none!important; border: none!important; text-decoration: none;}
+#twitter p#follow {text-align: center;}
+#twitter p#follow a {text-decoration: none;}
+/* LIKE POST */
+.like_post {border-bottom: 1px dotted #ccc;margin-bottom: 20px;padding-bottom: 20px;}
+.like_post:last-child {border: none;margin: 0;padding: 0;}
+.like_post ul {padding-left: 20px;}
+.like_post ul ul {margin-bottom: 0;}
+.like_post ul li {list-style-type: disc;}
+.like_post ul ul li {list-style-type: circle;}
+.like_post ol {padding-left: 20px;}
+.like_post ol ol {margin-bottom: 0;}
+.like_post ol li {list-style-type: upper-latin;}
+.like_post ol ol li {list-style-type: lower-latin;}
+.like_post p:last-child, .like_post ul:last-child, .like_post ol:last-child, .like_post blockquote:last-child {margin-bottom: 0;}
+/* FOLLOW WIDGET */
+#following_container {overflow: hidden;padding-bottom: 20px;}
+#following_container li {display: inline;padding: 0;margin: 0;}
+/*-------------------------------------------------------------------------------------------*/
+/* 5. POST NOTES */
+/*-------------------------------------------------------------------------------------------*/
+/* 5.1 Post Notes */
+#post-notes { position:relative; margin: 20px 0; padding: 20px 25px; background-color: #fff; border: 5px solid #efefef; }
+#post-notes h3{ margin: 0 0 20px 0; }
+#post-notes .notes{margin-top:10px;width:100%;list-style-type:none; padding: 10px 0; border-bottom: 3px solid #eee;}
+#post-notes .avatar {margin: 0 10px 0 0;vertical-align: middle;border:3px solid #eee;}
+#post-notes .action { display: inline; margin: 0 0 5px 0; font-weight: bold; font-size: 15px; }
+
+{CustomCSS}
+</style>
+
+<!-- Scripts -->
+	<!--[if IE 6]>
+		<script type="text/javascript" src="http://static.tumblr.com/ht0jnpr/xnrm3v6b1/pngfix.js"></script>
+		<script type="text/javascript" src="http://static.tumblr.com/ht0jnpr/hvYm3v6ch/menu.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="http://static.tumblr.com/ht0jnpr/fOnm4hl6r/ie6.css" />
+    <![endif]-->	
+	
+	<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" media="all" href="http://static.tumblr.com/ht0jnpr/QEZm4hl7a/ie7.css" />
+	<![endif]-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script>
+     $(function() {
+        var search = $("#txtSearch").val();
+        var placeholder = "Search...";
+        var fadeToOpacity = 0.4;
+        $("#txtSearch").fadeTo("normal", fadeToOpacity);
+        if (search == "") {
+     $("#txtSearch").val(placeholder);
+     }
+     $("#txtSearch").blur(function() {
+        search = $("#txtSearch").val();
+        if (!(search != "" && search != placeholder)) {
+        $("#txtSearch").val(placeholder);
+     }
+     $("#txtSearch").fadeTo("normal", fadeToOpacity);
+     });
+     $("#txtSearch").focus(function() {
+        search = $("#txtSearch").val();
+        if (search == placeholder) {
+        $("#txtSearch").val("");
+     }
+     $("#txtSearch").fadeTo("normal", 1);
+     });
+     });
+</script>
+</head>
+
+<body>
+
+<div id="container">
+
+	<div id="navigation">
+	
+		<div class="col-full">
+		
+			<ul id="topnav" class="nav fl">                 
+				<li><a href="/archive">Archive</a></li>
+				<li><a href="/random">Random</a></li>
+				<li><a href="/mobile">Mobile</a></li>
+				{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+				{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+			</ul><!-- /#topnav -->
+			
+			<div id="topsearch" class="fr">
+				<form action="/search" method="get" id="searchform_top">
+				<input type="text" id="txtSearch" name="q" value="{SearchQuery}" />
+				</form>    
+			</div><!-- /#topsearch -->
+			
+		</div><!-- /.col-full -->
+		
+	</div><!-- /#navigation -->
+	
+	<div id="header" class="col-full">
+		
+		<div id="logo" class="fl">
+			{block:IfHeaderImage}<h1 class="site-title"><a href="/"><img src="{image:Header}" alt="{Title}" /></a></h1>{/block:IfHeaderImage}
+			{block:IfNotHeaderImage}<h1 class="site-title"><a href="/">{Title}</a></h1>{/block:IfNotHeaderImage}
+			{block:Description}
+				<span class="site-description">{Description}</span>
+			{block:Description}
+		</div><!-- /#logo -->
+		
+		<div id="pagenav" class="nav fr">
+			<ul>
+				<li class="home"><a href="/">Home</a></li>
+			{block:HasPages}
+				{block:Pages}<li><a href="{URL}">{Label}</a></li>{block:Pages}
+			{/block:HasPages}
+				<li class="rss"><a href="/rss">RSS</a></li>
+			</ul>
+		</div><!-- /#pagenav -->
+		
+	</div><!-- /#header -->
+	
+	<div id="content" class="col-full">
+	
+		<div id="main" class="col-left">
+			
+			{block:SearchPage}
+			<div class="post">
+				<h2 class="title">Search results for <a href="{URLSafeSearchQuery}">{SearchQuery}</a></h2>
+                {block:NoSearchResults}
+                <div class="entry">
+					<p>Sorry, no posts matched your criteria.</p>
+                </div>
+                {/block:NoSearchResults}
+			</div>
+			{/block:SearchPage}
+				
+			{block:TagPage}
+			<div class="post">
+				<div class="entry">
+					<h2 class="title">Posts tagged <a href="{TagURL}">{Tag}</a></h2>
+				</div>
+			</div>
+			{/block:TagPage}  
+	 
+			{block:Posts}
+			<div class="post">
+			{block:Date}
+			<p class="date">
+				<span class="day">{DayOfMonthWithZero}</span>
+				<span class="month">{ShortMonth}</span>
+			</p>
+			{/block:Date}
+			
+				{block:Text}
+					{block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+					<div class="entry">
+						{Body}
+					</div>
+				{/block:Text}
+				
+				{block:Photo}
+					{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+					{block:Caption}<div class="entry">{Caption}</div>{/block:Caption}
+				{/block:Photo}
+				
+				{block:Photoset}
+					<div class="media">{Photoset-500}</div>
+					{block:Caption}<div class="entry">{Caption}</div>{/block:Caption}
+				{/block:Photoset}
+				
+				{block:Quote}
+					<div class="entry">
+						<h2 class="title">{Quote}</h2>
+						{block:Source}<div id="cite"><p>&mdash;{Source}</p></div>{/block:Source}
+					</div>
+				{/block:Quote}
+				
+				{block:Link}
+					<h2 class="title"><a href="{URL}" {Target}>{Name}</a></h2>
+					{block:Description}<div class="entry">{Description}</div>{/block:Description}
+				{/block:Link}
+				
+				{block:Chat}
+					{block:Title}<h2 class="title"><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+					<div class="entry">
+					<ul class="chat">
+						{block:Lines}
+						<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>
+						{/block:Lines}
+					</ul>
+					</div>
+				{/block:Chat}
+				
+				{block:Audio}
+					<div class="audio fl">
+						{AudioPlayerBlack}
+					</div>
+					<div class="audio fr">
+						{block:Artist}<b>{Artist}</b>{/block:Artist}
+						<p>&mdash;{block:TrackName}{TrackName}{/block:TrackName}</p>
+					</div>
+					<div class="fix"></div>
+					{block:Caption}<div class="entry">{Caption}</div>{/block:Caption}
+				{/block:Audio}
+				
+				{block:Video}
+					<div class="video">{Video-500}</div>
+					<div class="fix"></div>
+					{block:Caption}<div class="entry">{Caption}</div>{/block:Caption}
+				{/block:Video}
+				
+				{block:Answer}
+					<h2 class="title">{Asker} asked: {Question}</h3>
+					<div class="entry">{Answer}</div>
+				{/block:Answer}
+				
+				{block:Date}
+				{block:HasTags}
+				<div class="post-meta">
+					<ul>
+                    	<li class="notes">
+                    		<span class="head">Notes:</span>
+                    		<span class="body"><a href="{Permalink}">{NoteCountWithLabel}</a></span>
+                    	</li>
+                    	<li class="tags">
+                    		<span class="head">Tagged:</span>
+                    		{block:Tags}<span class="body"><a href="{TagURL}">{Tag}</a></span>{/block:Tags}
+                    	</li>
+                    	<li class="author">
+                    		<span class="head">Author:</span>
+                    		<span class="body">{block:NotReblog}<a href="{PostAuthorURL}">{PostAuthorName}</a>{/block:NotReblog}{block:RebloggedFrom}<a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}</span>
+                    	</li>
+                    </ul>
+					<div class="fix"></div>
+				</div><!-- /.post-meta -->
+				{/block:HasTags}
+				{/block:Date}
+
+				{block:PermalinkPagination}
+				<div id="nav-below">
+					<div class="nav-prev fl">{block:PreviousPost}<a href="{PreviousPost}"><span class="meta-nav">&larr;</span>Previous Posts</a>{/block:PreviousPost}</div>
+					<div class="nav-next fr">{block:NextPost}<a href="{NextPost}">Next Posts<span class="meta-nav">&rarr;</span></a>{/block:NextPost}</div>
+					<div class="fix"></div>
+				</div><!-- /#nav-below -->
+				{/block:PermalinkPagination}
+				
+				{block:PostNotes} 
+				<div id="post-notes">
+					<h3>This post has {NoteCount} Notes</h3>
+					<ol class="notes-list">
+						{PostNotes}
+					</ol>
+				</div>
+				{/block:PostNotes} 
+			</div><!-- /.post -->
+			{/block:Posts}
+					
+			{block:Pagination}
+			<div class="more_entries">
+				<div class="fl">{block:NextPage}<a href="{NextPage}">&laquo; Older Entries</a>{/block:NextPage}</div>
+				<div class="fr">{block:PreviousPage}<a href="{PreviousPage}">Newer Entries &raquo;</a>{/block:PreviousPage}</div>
+				<br class="fix" />
+			</div><!-- /.more-entries -->
+			{/block:Pagination}
+			
+		</div><!-- /#main -->
+		
+		<div id="sidebar" class="col-right">
+            {block:IfShowAboutWidget}
+                <div id="about" class="widget">
+					<h3>{text:About Title}</h3>
+                    <img src="{PortraitURL-64}" alt="portrait" />
+                    {block:Description}<div class="description"><p>{Description}</p></div>{/block:Description}
+                </div>
+            {/block:IfShowAboutWidget}
+			{block:IndexPage}{block:IfShowStuffILikeWidget}{block:Likes}
+                <div id="likes_container" class="widget">
+					<h3>{text:Stuff Title}</a></h3>
+                    {Likes limit="5" summarize="100" width="279"}
+                </div>
+            {/block:Likes}{/block:IfShowStuffILikeWidget}{/block:IndexPage}
+            {block:IndexPage}{block:IfShowLatestTweetsWidget}{block:Twitter}
+                <div id="twitter" class="widget">
+					<h3>{text:Tweets Title}</h3>
+                    <div class="twitter-content">
+					<ul id="tweets"></ul>
+                    <p id="follow"><a href="http://twitter.com/{TwitterUsername}">Follow me</a></p>
+					</div> 
+                </div>
+
+                <script type="text/javascript">
+                    function recent_tweets(data) {
+                        for (i=0; i<data.length; i++) {
+                            if (i<{text:Number of Tweets}) {
+                                document.getElementById("tweets").innerHTML = 
+                                    document.getElementById("tweets").innerHTML + 
+                                    '<li><a href="http://twitter.com/{TwitterUsername}/status/' + 
+                                    data[i].id + '">' + data[i].text + 
+                                    '</a></li>';
+                            }
+                        }
+                        document.getElementById("twitter").style.display = 'block';
+                    }
+                </script>
+            {/block:Twitter}{/block:IfShowLatestTweetsWidget}{/block:IndexPage}
+            {block:IfShowPeopleIFollowWidget}{block:Following}
+                <div id="following_container" class="widget">
+					<h3>{text:Following Title}</h3>
+                    <ul>
+                        {block:Followed}
+                            <li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}" alt="{FollowedName}"/></a></li>
+                        {/block:Followed}
+                    </ul>
+                </div>
+            {/block:Following}{/block:IfShowPeopleIFollowWidget}
+		</div><!-- /#sidebar -->
+		
+	</div><!-- /#content -->
+	
+	<div id="footer">
+	
+		<div class="col-full">
+		
+			<div id="copyright" class="col-left">
+				<p>&copy; 2012 <a href="/">{Title}</a>. All Rights Reserved.</p>
+			</div>
+			
+			<div id="credit" class="col-right">
+				<p>Powered by <a href="http://www.tumblr.com">Tumblr</a>. Designed by <a href="http://raadiate.tumblr.com">[raadiate]</a>. Tumbl'd by <a href="http://ridhan.tumblr.com">Ridhan</a>.</p>
+			</div>
+			
+		</div><!-- /.col-full -->
+	</div><!-- /#footer -->
+	
+	{block:IfGoogleAnalyticsID}
+		<script type="text/javascript">var gaJsHost=(("https:"==document.location.protocol)?"https://ssl.":"http://www.");document.write(unescape("%3Cscript src='"+gaJsHost+"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try{var pageTracker=_gat._getTracker("{text:Google Analytics ID}");pageTracker._trackPageview()}catch(err){}</script>
+	{block:IfGoogleAnalyticsID}
+	{block:Twitter}<script type="text/javascript" src="/tweets.js"></script>{/block:Twitter}
+	
+</div><!-- /#container -->
+
+</body>
+</html>
