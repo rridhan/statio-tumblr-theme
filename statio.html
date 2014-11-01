@@ -1,8 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--
     Theme: Statio
-    Design: Raadiate (http://raadiate.tumblr.com)
-	Tumbl'd by: Ridhan (http://ridhan.tumblr.com)
+    by Ridhan Ramdhan (http://ridhanramdhan.com)
 -->
 <html>
 <head>
@@ -15,16 +14,18 @@
 
 <!-- Default Variables -->
 <meta name="image:Background" content="http://static.tumblr.com/ht0jnpr/JDzm4hh8m/bg.jpg"/>
-<meta name="image:Header" content="http://static.tumblr.com/ht0jnpr/Jwvm4hl2o/logo.png"/>
-<meta name="if:Show About Widget" content="1"/>
-<meta name="if:Show Stuff I Like Widget" content="1"/>
-<meta name="if:Show Latest Tweets Widget" content="0"/>
-<meta name="if:Show People I Follow Widget" content="1"/>
-<meta name="text:About Title" content="About Me"/>
-<meta name="text:Stuff Title" content="Stuff I Like"/>
-<meta name="text:Tweets Title" content="Latest Tweets"/>
-<meta name="text:Number of Tweets" content="3"/>
-<meta name="text:Following Title" content="People I Follow"/>
+<meta name="image:Logo" content="http://static.tumblr.com/ht0jnpr/Jwvm4hl2o/logo.png"/>
+<meta name="text:Home Menu Title" content="Home" />
+<meta name="text:Archive Menu Title" content="Archive" />
+<meta name="if:Show Flickr Widget" content="1" />
+<meta name="if:Show Latest Tweets Widget" content="0" />
+<meta name="text:About Title" content="About Me" />
+<meta name="text:Tweets Title" content="Latest Tweets" />
+<meta name="text:Number of Tweets" content="3" />
+<meta name="text:Flickr Title" content="Photos on Flickr" />
+<meta name="text:Flickr ID" content="47157105@N08" />
+<meta name="text:Flickr Username" content="ridhantigabelas" />
+<meta name="text:Disqus Shortname" content="ridhan13" />
 <meta name="text:Google Analytics ID" content="" />
 
 <!-- Styles -->
@@ -82,9 +83,8 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 #topsearch  { width: 380px; line-height: 0; }
 #topsearch #searchform_top  { margin: 14px 0 0 0; }
 #header{padding:45px 0;clear:both;position:relative;}
-#logo  { }
-#logo img  {}
-#logo img:focus, #logo img:hover, #logo img:active {background: none repeat scroll 0 0 transparent;}
+#logo  {}
+#logo img, #logo img:focus, #logo img:hover, #logo img:active {background: none repeat scroll 0 0 transparent;}
 #logo .site-title a { font-family: 'Anton', arial, serif;color:#222; font-size:48px; line-height:48px; text-transform:uppercase; font-weight:normal; text-decoration:none;  }
 #logo .site-title a:hover { text-decoration:underline;  }
 #logo .site-description { display :none; }
@@ -178,30 +178,25 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 #twitter li a  { display: inline; padding: 0; line-height: 18px!important; background: none!important; border: none!important; text-decoration: none;}
 #twitter p#follow {text-align: center;}
 #twitter p#follow a {text-decoration: none;}
-/* LIKE POST */
-.like_post {border-bottom: 1px dotted #ccc;margin-bottom: 20px;padding-bottom: 20px;}
-.like_post:last-child {border: none;margin: 0;padding: 0;}
-.like_post ul {padding-left: 20px;}
-.like_post ul ul {margin-bottom: 0;}
-.like_post ul li {list-style-type: disc;}
-.like_post ul ul li {list-style-type: circle;}
-.like_post ol {padding-left: 20px;}
-.like_post ol ol {margin-bottom: 0;}
-.like_post ol li {list-style-type: upper-latin;}
-.like_post ol ol li {list-style-type: lower-latin;}
-.like_post p:last-child, .like_post ul:last-child, .like_post ol:last-child, .like_post blockquote:last-child {margin-bottom: 0;}
-/* FOLLOW WIDGET */
-#following_container {overflow: hidden;padding-bottom: 20px;}
-#following_container li {display: inline;padding: 0;margin: 0;}
+/* FLICKR */
+#flickr {float: left;margin-bottom: 20px!important;line-height: 0;}
+.flickr_badge_image {float: left;display: inline-block;}
+.flickr_badge_image img {padding: 4px;background: none transparent;width: 75px;height: 75px;}
+#flickr_container p#follow {text-align: center;}
+#flickr_container p#follow a {text-decoration: none;}
 /*-------------------------------------------------------------------------------------------*/
-/* 5. POST NOTES */
+/* 5. POST FOOTER */
 /*-------------------------------------------------------------------------------------------*/
 /* 5.1 Post Notes */
 #post-notes { position:relative; margin: 20px 0; padding: 20px 25px; background-color: #fff; border: 5px solid #efefef; }
 #post-notes h3{ margin: 0 0 20px 0; }
 #post-notes .notes{margin-top:10px;width:100%;list-style-type:none; padding: 10px 0; border-bottom: 3px solid #eee;}
-#post-notes .avatar {margin: 0 10px 0 0;vertical-align: middle;border:3px solid #eee;}
+#post-notes .avatar {margin: 0 10px 0 0;vertical-align: middle;background: none transparent; width: auto; padding: 0 0 5px;}
 #post-notes .action { display: inline; margin: 0 0 5px 0; font-weight: bold; font-size: 15px; }
+
+/* 5.2 Disqus Comments */
+#disqus_comments { position:relative; margin: 20px 0; padding: 20px 25px; background-color: #fff; border: 5px solid #efefef; }
+#disqus_comments h3{ margin: 0 0 20px 0; }
 
 {CustomCSS}
 </style>
@@ -253,9 +248,11 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 		<div class="col-full">
 		
 			<ul id="topnav" class="nav fl">                 
-				<li><a href="/archive">Archive</a></li>
-				<li><a href="/random">Random</a></li>
-				<li><a href="/mobile">Mobile</a></li>
+				<li><a href="/">{text:Home Menu Title}</a></li>
+				<li><a href="/archive">{text:Archive Menu Title}</a></li>
+				{block:HasPages}
+				    {block:Pages}<li><a href="{URL}">{Label}</a></li>{block:Pages}
+			    {/block:HasPages}
 				{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
 				{block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
 			</ul><!-- /#topnav -->
@@ -273,7 +270,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 	<div id="header" class="col-full">
 		
 		<div id="logo" class="fl">
-			{block:IfHeaderImage}<h1 class="site-title"><a href="/"><img src="{image:Header}" alt="{Title}" /></a></h1>{/block:IfHeaderImage}
+			{block:IfHeaderImage}<h1 class="site-title"><a href="/"><img src="{image:Logo}" alt="{Title}" /></a></h1>{/block:IfHeaderImage}
 			{block:IfNotHeaderImage}<h1 class="site-title"><a href="/">{Title}</a></h1>{/block:IfNotHeaderImage}
 			{block:Description}
 				<span class="site-description">{Description}</span>
@@ -282,10 +279,6 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 		
 		<div id="pagenav" class="nav fr">
 			<ul>
-				<li class="home"><a href="/">Home</a></li>
-			{block:HasPages}
-				{block:Pages}<li><a href="{URL}">{Label}</a></li>{block:Pages}
-			{/block:HasPages}
 				<li class="rss"><a href="/rss">RSS</a></li>
 			</ul>
 		</div><!-- /#pagenav -->
@@ -400,7 +393,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
                     		{block:Tags}<span class="body"><a href="{TagURL}">{Tag}</a></span>{/block:Tags}
                     	</li>
                     	<li class="author">
-                    		<span class="head">Author:</span>
+                    		<span class="head">{block:NotReblog}Author:{/block:NotReblog}{block:RebloggedFrom}Reblog From:{/block:RebloggedFrom}</span>
                     		<span class="body">{block:NotReblog}<a href="{PostAuthorURL}">{PostAuthorName}</a>{/block:NotReblog}{block:RebloggedFrom}<a href="{ReblogParentURL}">{ReblogParentName}</a>{/block:RebloggedFrom}</span>
                     	</li>
                     </ul>
@@ -417,6 +410,31 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 				</div><!-- /#nav-below -->
 				{/block:PermalinkPagination}
 				
+				{block:IfDisqusShortname}
+				{block:PermalinkPage}
+				{block:PermalinkPagination}
+				<div id="disqus_comments">
+				<h3>Leave A Comment</h3>
+					<div id="disqus_thread"></div>
+					<script type="text/javascript">
+					    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					    var disqus_shortname = '{text:Disqus Shortname}'; // required: replace example with your Disqus site shortname
+					    var disqus_url = '{Permalink}';
+					    var disqus_title = '{block:PostTitle}{PostTitle}{/block:PostTitle}';
+					
+					    /* * * DON'T EDIT BELOW THIS LINE * * */
+					    (function() {
+					        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+					        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					    })();
+					</script>
+					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				</div>
+				{/block:PermalinkPagination}
+				{/block:PermalinkPage}
+				{/block:IfDisqusShortname}
 				{block:PostNotes} 
 				<div id="post-notes">
 					<h3>This post has {NoteCount} Notes</h3>
@@ -439,27 +457,35 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 		</div><!-- /#main -->
 		
 		<div id="sidebar" class="col-right">
-            {block:IfShowAboutWidget}
-                <div id="about" class="widget">
-					<h3>{text:About Title}</h3>
-                    <img src="{PortraitURL-64}" alt="portrait" />
-                    {block:Description}<div class="description"><p>{Description}</p></div>{/block:Description}
+            <div id="about" class="widget">
+				<h3>{text:About Title}</h3>
+                <img src="{PortraitURL-64}" alt="portrait" />
+                {block:Description}
+                <div class="description">
+                    <p>{Description}</p>
                 </div>
-            {/block:IfShowAboutWidget}
-			{block:IndexPage}{block:IfShowStuffILikeWidget}{block:Likes}
-                <div id="likes_container" class="widget">
-					<h3>{text:Stuff Title}</a></h3>
-                    {Likes limit="5" summarize="100" width="279"}
-                </div>
-            {/block:Likes}{/block:IfShowStuffILikeWidget}{/block:IndexPage}
-            {block:IndexPage}{block:IfShowLatestTweetsWidget}{block:Twitter}
-                <div id="twitter" class="widget">
-					<h3>{text:Tweets Title}</h3>
-                    <div class="twitter-content">
-					<ul id="tweets"></ul>
+                {/block:Description}
+            </div>
+			{block:IfShowFlickrWidget}
+            <div id="flickr_container" class="widget">
+				<div class="widget_content">
+				<h3>{text:Flickr Title}</h3>
+					<ul id="flickr">
+						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=random&size=s&layout=x&source=user&user={text:Flickr ID}"></script>
+					</ul>
+					<div class="clear"></div>
+				    <p id="follow"><a href="http://www.flickr.com/photos/{text:Flickr Username}/" target="_blank">Follow on Flickr</a></p>
+				</div>
+            </div>
+            {/block:IfShowFlickrWidget}
+            {block:IfShowLatestTweetsWidget}{block:Twitter}
+            <div id="twitter" class="widget">
+				<h3>{text:Tweets Title}</h3>
+                <div class="twitter-content">
+			    	<ul id="tweets"></ul>
                     <p id="follow"><a href="http://twitter.com/{TwitterUsername}">Follow me</a></p>
-					</div> 
-                </div>
+				</div> 
+            </div>
 
                 <script type="text/javascript">
                     function recent_tweets(data) {
@@ -475,17 +501,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
                         document.getElementById("twitter").style.display = 'block';
                     }
                 </script>
-            {/block:Twitter}{/block:IfShowLatestTweetsWidget}{/block:IndexPage}
-            {block:IfShowPeopleIFollowWidget}{block:Following}
-                <div id="following_container" class="widget">
-					<h3>{text:Following Title}</h3>
-                    <ul>
-                        {block:Followed}
-                            <li><a href="{FollowedURL}"><img src="{FollowedPortraitURL-30}" alt="{FollowedName}"/></a></li>
-                        {/block:Followed}
-                    </ul>
-                </div>
-            {/block:Following}{/block:IfShowPeopleIFollowWidget}
+            {/block:Twitter}{/block:IfShowLatestTweetsWidget}
 		</div><!-- /#sidebar -->
 		
 	</div><!-- /#content -->
@@ -499,7 +515,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover  {text-de
 			</div>
 			
 			<div id="credit" class="col-right">
-				<p>Powered by <a href="http://www.tumblr.com">Tumblr</a>. Designed by <a href="http://raadiate.tumblr.com">[raadiate]</a>. Tumbl'd by <a href="http://ridhan.tumblr.com">Ridhan</a>.</p>
+				<p>Powered by <a href="http://www.tumblr.com">Tumblr</a> Crafted by <a href="http://ridhanramdhan.com">Ridhan Ramdhan.</a></p>
 			</div>
 			
 		</div><!-- /.col-full -->
